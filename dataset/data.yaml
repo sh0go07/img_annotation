@@ -1,5 +1,0 @@
-train: /content/dataset/train/images
-val: /content/dataset/train/images
-
-nc: 3
-names: ['plug', 'dripping', 'jetting']

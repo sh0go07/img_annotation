@@ -1,10 +1,11 @@
 from ultralytics import YOLO
 
-# load new model
-model = YOLO("yolov8s.pt")
+if __name__ == "__main__":
+    # load new model
+    model = YOLO("yolov8s.pt")
 
-# start learning
-model.train(data="dataset/data.yaml", epochs=50, imgsz=640, device=0)
+    # start learning
+    model.train(data="datasets/data.yaml", epochs=50, imgsz=640, device=0)
 
 print("learning finished")
 
