@@ -21,8 +21,8 @@ predictor = SAM2ImagePredictor(sam2_model)
 class_list = ["plug", "dripping", "jetting"]
 
 # images path
-IMAGE_DIR = "dataset/train/images"
-LABEL_DIR = "dataset/train/labels"
+IMAGE_DIR = "datasets/train/images"
+LABEL_DIR = "datasets/train/labels"
 os.makedirs(LABEL_DIR, exist_ok=True)
 
 # find images
@@ -33,7 +33,7 @@ current_idx = 0
 def load_current_image():
     global current_idx, image_paths
     if not image_paths:
-        return None, "dataset/train/images の中に写真を入れてね！"
+        return None, "datasets/train/images の中に写真を入れてね！"
 
     img_path = image_paths[current_idx]
     img_bgr = cv2.imread(img_path)
@@ -117,5 +117,5 @@ with gr.Blocks() as demo:
     image_input.select(get_click_and_mask, inputs=[image_input, class_picker], outputs=[image_input])
     next_btn.click(next_image, outputs=[image_input, status_label])
 
-demo.launch(debug=True)
+demo.launch(share=True)
 
