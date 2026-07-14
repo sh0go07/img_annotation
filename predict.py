@@ -102,7 +102,7 @@ image_pil = Image.fromarray(image_rgb)
 draw = ImageDraw.Draw(image_pil)
 
 
-for group in groups:
+for detected_index, group in enumerate(groups, start=1):
     x1, y1, x2, y2 = map(int, group["box"])
 
     # クラス別確度を高い順にする
@@ -124,6 +124,12 @@ for group in groups:
         if confidence >= DISPLAY_CONF
         and top_confidence - confidence <= MAX_CONF_GAP
     ][:MAX_LABELS]
+
+    # ターミナルに検出結果を出力
+    print(f"\n検出結果 {detected_index}")
+
+    for class_id, confidence in visible:
+        print(f" {names[class_id]}: {confidence:.2%}")
 
     text = "\n".join(
         f"{names[class_id]}: {confidence:2f}"
