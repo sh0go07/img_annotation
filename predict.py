@@ -129,7 +129,7 @@ for detected_index, group in enumerate(groups, start=1):
     print(f"\n検出結果 {detected_index}")
 
     for class_id, confidence in visible:
-        print(f" {names[class_id]}: {confidence:.2%}")
+        print(f" {names[class_id]}: {confidence:.2f}")
 
     text = "\n".join(
         f"{names[class_id]}: {confidence:2f}"
