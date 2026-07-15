@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 # 調整する設定
-MODEL_PATH = "/home/8/uj07518/img_annotation/runs/detect/train/weights/best.pt"
+MODEL_PATH = "/home/8/uj07518/img_annotation/runs/detect/retrain_02/weights/best.pt"
 SOURCE_IMAGE = "test.png"
 OUTPUT_IMAGE = "result_multi_label.png"
 
